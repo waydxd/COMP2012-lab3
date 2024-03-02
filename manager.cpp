@@ -16,16 +16,17 @@ user_capacity(user_max), singers_capacity(singers_max), songs_capacity(songs_max
 
 MusicManager::~MusicManager() {
     // TODO 6: Build the destructors.
-    for(int i = 0;i < num_of_user;i++){
-        delete user_list[i];
+    
+    for(int i = 0;i < user_capacity;i++){
+        if(user_list[i]) {delete user_list[i];}
     }
     delete[] user_list;
-    for(int i = 0;i < num_of_singers;i++){
-        delete singer_list[i];
+    for(int i = 0;i < singers_capacity;i++){
+        if(singer_list[i]) {delete singer_list[i];}
     }
     delete[] singer_list;
-    for(int i = 0;i<num_of_singers;i++){
-        delete song_list[i];
+    for(int i = 0;i < songs_capacity;i++){
+        if(song_list[i]) {delete song_list[i];}
     }
     delete[] song_list;
     
@@ -41,7 +42,8 @@ void MusicManager::createSong(const string& name, const string& singer_name)
     // TODO 2: Add a song into the MusicManager.
     for(int i = 0;i<num_of_singers;i++){
         if(this->singer_list[i]->getName() == singer_name){
-            song_list[num_of_singers++] = new Song(name,singer_list[i]); 
+            song_list[num_of_songs++] = new Song(name,singer_list[i]); 
+            return;
         }
     }
 }
@@ -55,19 +57,14 @@ void MusicManager::createPlaylist(const string& user_name) {
 
 void MusicManager::createPlaylistFromOther(const string& des_user_name, const string& src_user_name) {
     // TODO 5: Copy the playlist from your friend.
-    int dest;
     int src;
-    for(dest = 0;dest<=num_of_user;dest++){
-        if(dest==num_of_user){return;}
-        if(this->user_list[dest]->getUsername()==des_user_name){break;}
-    }
     for(src = 0; src<=num_of_user;src++){
         if(src==num_of_user){return;}
         if(this->user_list[src]->getUsername()==src_user_name){break;}
     }
-    PlayList *temp = new PlayList(des_user_name,*this->user_list[src]);
-    delete user_list[dest];
-    user_list[dest] = temp;
+    //PlayList *temp = ;
+    //delete user_list[dest];
+    user_list[num_of_user++] = new PlayList(des_user_name,*this->user_list[src]);
     cout << "[CopyCreation] Playlist of " << des_user_name << " (From:" << src_user_name << ")." << endl;
     return;
 }

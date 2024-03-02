@@ -10,11 +10,13 @@ PlayList::PlayList(const string& username, int capacity): username(username), ca
 
 PlayList::PlayList(const string& username, const PlayList& playlist, int capacity) : username(username), capacity(capacity) {
     // TODO 3: PlayList constructor.
-    for(int i = 0 ; i < this->capacity; i++){
+    songs = new const Song*[capacity];
+    for(int i = 0 ; i < capacity; i++){
         if(i >= playlist.capacity){
             this->songs[i] = nullptr;
         } else{
             this->songs[i] = playlist.songs[i];
+
         }
     }
 }
@@ -42,11 +44,11 @@ void PlayList::removeSong(const string& name) {
     // TODO 4: Add and Remove Songs of a Playlist.
     for(int i = 0; i < this->capacity; i++){
         if(this->songs[i]->getName() == name){
-            delete songs[i];
             for(int j = i; j < this->capacity-1 ;j++){
                 this->songs[j] = this->songs[j+1];
             }
             this->songs[capacity-1] = nullptr;
+            return;
         }
     }
 }
