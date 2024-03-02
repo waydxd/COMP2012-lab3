@@ -23,11 +23,7 @@ PlayList::PlayList(const string& username, const PlayList& playlist, int capacit
 
 PlayList::~PlayList() {
     // TODO 6: Build the destructors.
-    for(int i = 0; i < this->capacity; i++){
-        if(this->songs[i]){
-            delete this->songs;
-        }
-    }
+    delete[] this->songs;
 }
 
 void PlayList::addSong(const Song* song) {

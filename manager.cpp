@@ -17,16 +17,16 @@ user_capacity(user_max), singers_capacity(singers_max), songs_capacity(songs_max
 MusicManager::~MusicManager() {
     // TODO 6: Build the destructors.
     
-    for(int i = 0;i < user_capacity;i++){
-        if(user_list[i]) {delete user_list[i];}
+    for(int i = 0;i < num_of_user;i++){
+        delete user_list[i];
     }
     delete[] user_list;
-    for(int i = 0;i < singers_capacity;i++){
-        if(singer_list[i]) {delete singer_list[i];}
+    for(int i = 0;i < num_of_singers;i++){
+        delete singer_list[i];
     }
     delete[] singer_list;
-    for(int i = 0;i < songs_capacity;i++){
-        if(song_list[i]) {delete song_list[i];}
+    for(int i = 0;i < num_of_songs;i++){
+        delete song_list[i];
     }
     delete[] song_list;
     
