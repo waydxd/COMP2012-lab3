@@ -5,9 +5,9 @@ MusicManager::MusicManager(int user_max, int singers_max, int songs_max) :
 user_capacity(user_max), singers_capacity(singers_max), songs_capacity(songs_max)
 {
     // TODO 1: MusicManager constructor.
-    this->user_list = new PlayList*[user_max];
-    this->singer_list = new Singer*[singers_max];
-    this->song_list = new Song*[songs_max];
+    this->user_list = new PlayList*[user_capacity];
+    this->singer_list = new Singer*[singers_capacity];
+    this->song_list = new Song*[songs_capacity];
     this->num_of_singers = 0;
     this->num_of_songs = 0;
     this->num_of_user = 0;
