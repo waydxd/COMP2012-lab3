@@ -32,7 +32,6 @@ int main() {
     manager.addSongToPlaylist("Desmond", "Shake It Off");
     manager.addSongToPlaylist("Desmond", "Love Story");
     manager.addSongToPlaylist("Desmond", "Mojito");
-
     // create users and copy playlist from other user
     manager.createPlaylistFromOther("Cecia", "Desmond");
     
@@ -42,7 +41,6 @@ int main() {
     manager.addSongToPlaylist("Cecia", "Someone Like You");
     manager.removeSongFromPlaylist("Cecia", "Shake It Off");
     manager.removeSongFromPlaylist("Cecia", "Love Story");
-
     // display playlist
     manager.displayPlaylist("Desmond");
     manager.displayPlaylist("Cecia");

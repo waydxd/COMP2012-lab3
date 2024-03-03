@@ -39,6 +39,7 @@ void PlayList::addSong(const Song* song) {
 void PlayList::removeSong(const string& name) {
     // TODO 4: Add and Remove Songs of a Playlist.
     for(int i = 0; i < this->capacity; i++){
+        if(this->songs[i] == nullptr){return;}
         if(this->songs[i]->getName() == name){
             for(int j = i; j < this->capacity-1 ;j++){
                 this->songs[j] = this->songs[j+1];

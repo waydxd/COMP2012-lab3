@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -Wextra -std=c++11
+CFLAGS = -Wall -Wextra -std=c++11 -fsanitize=address,leak,undefined -g
 
 SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
